@@ -5,7 +5,7 @@ const App = () => {
   const [category, setCategory] = useState("general");
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(true);
- const API_KEY="";
+ const API_KEY="a86801e0db9d85e8a2c6b1f6a2244cf9";
 
  const changeFunction=(e)=>
  {
@@ -14,7 +14,7 @@ const App = () => {
  useEffect(()=>
  {
    setLoading(true);
-   fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&apikey=[API_KEY]&max=10&lang=en`).then(res=>res.json())
+   fetch(`https://gnews.io/api/v4/top-headlines?category=${category}&lang=en&country=us&max=10&apikey=${API_KEY}`).then(res=>res.json())
    .then((res)=>{
     setNewsData(res.articles)
     console.log(res);
